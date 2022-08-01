@@ -1,0 +1,47 @@
+GET http://localhost:3000/users HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
+###
+POST http://localhost:3000/users/create_user HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
+{
+"name":"Prem",
+ "email": "prem.jangir@gmail.com",
+ "password":"12345"
+}
+
+###
+POST http://localhost:3000/users/login HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
+{
+    "email": "prem.jangi2r@gmail.com",
+    "password": "12345"
+}
+
+### 
+PUT http://localhost:3000/users/update HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
+{
+    "email":"prem.jangir@gmail.com",
+    "name": "Prum"
+}
+
+###
+DELETE http://localhost:3000/users/delete/62e64c6e23683a965f600e55 HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
+###
+GET http://localhost:3000/users/findUser/prem.jangi2r@gmail.com HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
+###
+GET http://localhost:3000/users/sort HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
+###
+GET http://localhost:3000/users/full_details/62e6cb8fe572477677c75e70 HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+

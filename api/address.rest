@@ -1,0 +1,12 @@
+###
+POST http://localhost:3000/addresses/save_address HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
+{"user_id":"62e64c7923683a965f600e57",
+"address":"jodhpur"
+}
+
+###
+GET http://localhost:3000/addresses/getUserByLocation/jaipur HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
