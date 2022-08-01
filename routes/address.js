@@ -50,4 +50,6 @@ router.get('/getUserByLocation/:loc',async(req,res)=>{
   })
 
 // comment for release1 
+// comment for release 2
+  
 module.exports = router;
