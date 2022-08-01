@@ -49,5 +49,5 @@ router.get('/getUserByLocation/:loc',async(req,res)=>{
     res.status(200).json(allUsers)
   })
 
-  
+// comment for release1 
 module.exports = router;
