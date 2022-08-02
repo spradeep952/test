@@ -7,7 +7,7 @@ Content-Type: application/json; charset=UTF-8
 
 {
 "name":"Prem",
- "email": "prem.jangir@gmail.com",
+ "email": "prem.ja8ngir@gmail.com",
  "password":"12345"
 }
 
