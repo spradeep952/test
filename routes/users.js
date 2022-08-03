@@ -2,8 +2,11 @@ var express = require('express')
 var router = express.Router()
 var UserModel = require('../src/models/user')
 const ObjectId =require('mongoose').Types.ObjectId;
+var multer = require('multer')
+const userController = require('../controller/users_controller')
 
-/* GET users listing. */
+
+// get the list of all users
 router.get('/', async (req, res, next) => {
   try{
     const allUsers = await UserModel.find({})
@@ -15,6 +18,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+// create a new user in the db
 router.post('/create_user', async (req, res, next) => {
   let newUser = new UserModel(req.body)
   
@@ -54,19 +58,10 @@ router.get('/full_details/:id',async(req,res)=>{
   res.status(200).json(fullDetails)
 })
 
-router.post('/login', async (req, res, next) => {
-  const email = req.body.email
-  const password = req.body.password
-  const user = await UserModel.findOne({"email":email})
-
-  if(!user){
-    return res.status(404).json({"message":"user not found."})
-  }
-  else if(user.password==password){
-    return res.status(200).json(user)
-  }
-  return res.status(401).json({"message":"Invalid user credentials."})
-})
+router.post(
+  '/login',
+  userController.login
+  )
 
 
 router.put('/update', async (req, res, next) => {
@@ -117,6 +112,12 @@ router.get('/sort', async(req, res, next) => {
   }
 })
 
+router.post('/uploadFile', userController.upload.single('profile-file') , async (req, res, err) =>{
+  if(err){
+    return res.status(200).json({"message":"uploaded"})
+  }
+  return res.status(500).json({"message":"Something went wrong.", "error_message":err.message})
+})
 
 
 
